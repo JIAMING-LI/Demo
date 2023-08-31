@@ -1,0 +1,7 @@
+If the same file (in this case, fileA) exists in both branches and has not been modified since the branches diverged, then there should indeed be no diff for fileA when you create a merge request or pull request. The diff only shows changes that have been made since the branches diverged, and it compares the current state of the files in the two branches.
+
+However, if fileA has been modified in either branch since the branches diverged, then the diff will show those changes, even if the file exists in both branches.
+
+In your specific case, you mentioned that you cherry-picked commit A from the Dev branch into the Master branch, creating commit A'. If commit A involved changes to fileA, and no further changes to fileA have been made in the Dev branch since commit A, then fileA should indeed show no diff when you create a merge request from Dev to Master, because the changes from commit A are already present in Master as commit A'.
+
+However, if there have been further changes to fileA in the Dev branch since commit A, then the diff will show those changes. Similarly, if there have been changes to fileA in the Master branch since commit A' (other than the changes introduced by commit A'), then the diff will show those changes.
